@@ -4,7 +4,7 @@ Welcome, agents! Your mission, should you choose to accept it, is to build an aw
 
 This isn't just a coding exercise; it's a full-stack journey. We'll start with setting up a pro-level dev environment, wrestle with complex data, build a smart AI core, and finally, wrap it all up into a sleek, production-ready application. Let's build something cool! ✨
 
-## 💾 Data Source 
+## 💾 Data Source
 I will add your emails and you will be able to download the data under this link:
 https://drive.google.com/drive/folders/1OTZ184vuPtMygOEq6pEa09Y6CRm0ISOq?usp=sharing
 
@@ -59,10 +59,6 @@ First things first. A great project needs a great foundation. Before we even loo
 ## Phase 2: The Data Heist - Extraction & Structuring 📊
 
 Alright, time to get our hands dirty! This is where we tackle the main data challenge: pulling structured information from unstructured chaos.
-
-**Your Data Drop:**
-A ZIP file full of financial statements is waiting for you. Grab it, unzip it, and let the games begin!
-➡️ [**LINK TO YOUR GOOGLE DRIVE / DATA SOURCE**]
 
 *(**Pro-tip:** Unzip the data into a `data/` folder and add that folder to your `.gitignore`!)*
 

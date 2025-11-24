@@ -1,0 +1,79 @@
+[project]
+name = "finai"
+version = "0.1.0"
+description = "AI-driven financial analysis of Polish companies."
+authors = [
+    { name = "FilipKubackiEmoLink", email = "filip.kubacki@emo-link.com" }
+]
+dependencies = [
+    "pdfplumber>=0.11.8",
+    "docling>=2.63.0",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "ruff>=0.14.6",
+    "mypy>=1.18.2",
+    "pre-commit>=4.5.0",
+    "commitizen>=4.10.0",
+    "codespell>=2.4.1",
+    "ipykernel>=7.1.0",
+    "tqdm>=4.67.1",
+    "rich>=14.2.0",
+    "ipywidgets>=8.1.8",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pwraicore"]
+
+
+# === Tool Configurations Start Here ===
+
+[tool.ruff]
+# Set the minimum Python version to target for compatibility.
+target-version = "py39"
+line-length = 88
+
+[tool.ruff.lint]
+# Select the rules you want to enforce. 'E' and 'F' are standard.
+select = ["E", "F", "W", "I", "UP"]
+ignore = []
+
+[tool.mypy]
+# Basic mypy configuration for strict type checking
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true # Good for starting out
+
+[tool.commitizen]
+# Defines the commit message format. Conventional Commits is a great standard.
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "semver"
+version_provider = "pep621"
+update_changelog_on_bump = true
+
+[tool.codespell]
+# Ignores common false positives for spell checking
+skip = "*.json,*.lock,*.css,*.js"
+ignore-words-list = "krs,tys" # Add project-specific words to ignore
+
+# === Rye Scripts for Convenience ===
+
+[tool.rye.scripts]
+lint = { cmd = "ruff check . && ruff format ." }
+typecheck = { cmd = "mypy ." }
+spellcheck = { cmd = "codespell ." }
+check = { chain = ["lint", "typecheck", "spellcheck"] }
+commit = { cmd = "cz commit" }
